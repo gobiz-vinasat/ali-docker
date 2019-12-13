@@ -1,0 +1,12 @@
+include:
+  - project: dev-ops/ci-templates
+    ref: master
+    file: /jobs/package_docker_image.yml
+
+stages:
+  - package
+
+package_php:
+  extends: .package_docker_image
+  only:
+    - tags
