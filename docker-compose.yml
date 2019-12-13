@@ -1,0 +1,59 @@
+version: "3"
+services:
+  nhaphang_admin:
+    image: ${PHP_IMAGE}
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
+    volumes:
+      - ${NHAPHANG_SOURCE}:/var/www/html
+    ports:
+      - ${NHAPHANG_ADMIN_PORT}:80
+    restart: unless-stopped
+  nhaphang_logistics:
+    image: ${PHP_IMAGE}
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+    volumes:
+      - ${NHAPHANG_LOGSITICS_SOURCE}:/var/www/html
+    ports:
+      - ${NHAPHANG_LOGSITICS_PORT}:80
+    restart: unless-stopped
+  baogam_in:
+    image: ${PHP_IMAGE}
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+    volumes:
+      - ${BAOGAM_IN_SOURCE}:/var/www/html
+    ports:
+      - ${BAOGAM_IN_PORT}:80
+    restart: unless-stopped
+  mariadb:
+    image: ${MARIADB_IMAGE}
+    environment:
+      - MYSQL_ROOT_PASSWORD=123123
+    volumes:
+      - mariadb:/var/lib/mysql
+    ports:
+      - ${MARIADB_PORT}:3306
+    restart: unless-stopped
+  redis:
+    image: ${REDIS_IMAGE}
+    restart: unless-stopped
+  mongo:
+    image: ${MONGO_IMAGE}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123123
+    volumes:
+      - mongo:/data/db
+    ports:
+      - ${MONGO_PORT}:27017
+    restart: unless-stopped
+  adminer:
+    image: adminer
+    ports:
+      - ${ADMINER_PORT}:8080
+    restart: unless-stopped
+volumes:
+  mariadb:
+  mongo:
