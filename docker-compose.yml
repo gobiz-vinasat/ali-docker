@@ -36,9 +36,6 @@ services:
     ports:
       - ${MARIADB_PORT}:3306
     restart: unless-stopped
-  redis:
-    image: ${REDIS_IMAGE}
-    restart: unless-stopped
   mongo:
     image: ${MONGO_IMAGE}
     environment:
@@ -48,6 +45,11 @@ services:
       - mongo:/data/db
     ports:
       - ${MONGO_PORT}:27017
+    restart: unless-stopped
+  redis:
+    image: ${REDIS_IMAGE}
+    ports:
+      - ${REDIS_PORT}:6379
     restart: unless-stopped
   adminer:
     image: adminer
