@@ -1,7 +1,7 @@
 version: "3"
 services:
   nhaphang_admin:
-    image: ${PHP_IMAGE}
+    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
     volumes:
@@ -10,7 +10,7 @@ services:
       - ${NHAPHANG_ADMIN_PORT}:80
     restart: unless-stopped
   nhaphang_order:
-    image: ${PHP_IMAGE}
+    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
     volumes:
@@ -19,7 +19,7 @@ services:
       - ${NHAPHANG_ORDER_PORT}:80
     restart: unless-stopped
   nhaphang_logistics:
-    image: ${PHP_IMAGE}
+    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
     volumes:
@@ -27,26 +27,26 @@ services:
     ports:
       - ${NHAPHANG_LOGSITICS_PORT}:80
     restart: unless-stopped
-  vitali:
-    image: ${PHP_IMAGE}
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-    volumes:
-      - ${VITALI_SOURCE}:/var/www/html
-    ports:
-      - ${VITALI_PORT}:80
-    restart: unless-stopped
-  nhaphang_in:
-    image: ${PHP_IMAGE}
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-    volumes:
-      - ${NHAPHANG_IN_SOURCE}:/var/www/html
-    ports:
-      - ${NHAPHANG_IN_PORT}:80
-    restart: unless-stopped
+#  vitali:
+#    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
+#    environment:
+#      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+#    volumes:
+#      - ${VITALI_SOURCE}:/var/www/html
+#    ports:
+#      - ${VITALI_PORT}:80
+#    restart: unless-stopped
+#  nhaphang_in:
+#    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
+#    environment:
+#      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+#    volumes:
+#      - ${NHAPHANG_IN_SOURCE}:/var/www/html
+#    ports:
+#      - ${NHAPHANG_IN_PORT}:80
+#    restart: unless-stopped
   baogam_admin:
-    image: ${PHP_IMAGE}
+    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
     volumes:
@@ -54,17 +54,17 @@ services:
     ports:
       - ${BAOGAM_ADMIN_PORT}:80
     restart: unless-stopped
-  baogam_order:
-    image: ${PHP_IMAGE}
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-    volumes:
-      - ${BAOGAM_SOURCE}:/var/www/html
-    ports:
-      - ${BAOGAM_ORDER_PORT}:80
-    restart: unless-stopped
+#  baogam_order:
+#    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
+#    environment:
+#      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+#    volumes:
+#      - ${BAOGAM_SOURCE}:/var/www/html
+#    ports:
+#      - ${BAOGAM_ORDER_PORT}:80
+#    restart: unless-stopped
   baogam_logistics:
-    image: ${PHP_IMAGE}
+    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
     volumes:
@@ -72,26 +72,26 @@ services:
     ports:
       - ${BAOGAM_LOGSITICS_PORT}:80
     restart: unless-stopped
-  vibaga:
-    image: ${PHP_IMAGE}
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-    volumes:
-      - ${VIBAGA_SOURCE}:/var/www/html
-    ports:
-      - ${VIBAGA_PORT}:80
-    restart: unless-stopped
-  baogam_in:
-    image: ${PHP_IMAGE}
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-    volumes:
-      - ${BAOGAM_IN_SOURCE}:/var/www/html
-    ports:
-      - ${BAOGAM_IN_PORT}:80
-    restart: unless-stopped
+#  vibaga:
+#    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
+#    environment:
+#      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+#    volumes:
+#      - ${VIBAGA_SOURCE}:/var/www/html
+#    ports:
+#      - ${VIBAGA_PORT}:80
+#    restart: unless-stopped
+#  baogam_in:
+#    image: gitlab.gobiz.vn:4567/vinasat/alimama/docker:php-5.4.1
+#    environment:
+#      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+#    volumes:
+#      - ${BAOGAM_IN_SOURCE}:/var/www/html
+#    ports:
+#      - ${BAOGAM_IN_PORT}:80
+#    restart: unless-stopped
   mariadb:
-    image: ${MARIADB_IMAGE}
+    image: mariadb:5.5
     environment:
       - MYSQL_ROOT_PASSWORD=123123
     volumes:
@@ -100,7 +100,7 @@ services:
       - ${MARIADB_PORT}:3306
     restart: unless-stopped
   mongo:
-    image: ${MONGO_IMAGE}
+    image: mongo:3.4
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=123123
@@ -110,7 +110,7 @@ services:
       - ${MONGO_PORT}:27017
     restart: unless-stopped
   redis:
-    image: ${REDIS_IMAGE}
+    image: redis:3.2
     ports:
       - ${REDIS_PORT}:6379
     restart: unless-stopped
