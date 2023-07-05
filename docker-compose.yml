@@ -4,8 +4,6 @@ services:
     image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
-      - APACHE_RUN_DIR=/var/www/html/www_admin
-      - APACHE_LOG_DIR=/var/log/apache2
     volumes:
       - ${NHAPHANG_SOURCE}:/var/www/html
     ports:
