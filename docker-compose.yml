@@ -1,7 +1,7 @@
 version: "3"
 services:
   nhaphang_admin:
-    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
       - APACHE_RUN_DIR=/var/www/html/www_admin
@@ -12,7 +12,7 @@ services:
       - ${NHAPHANG_ADMIN_PORT}:80
     restart: unless-stopped
   nhaphang_order:
-    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
     volumes:
@@ -21,7 +21,7 @@ services:
       - ${NHAPHANG_ORDER_PORT}:80
     restart: unless-stopped
   # nhaphang_logistics:
-  #   image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+  #   image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
   #   environment:
   #     - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
   #   volumes:
@@ -30,7 +30,7 @@ services:
   #     - ${NHAPHANG_LOGSITICS_PORT}:80
   #   restart: unless-stopped
 #  vitali:
-#    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+#    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
 #    environment:
 #      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
 #    volumes:
@@ -39,7 +39,7 @@ services:
 #      - ${VITALI_PORT}:80
 #    restart: unless-stopped
 #  nhaphang_in:
-#    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+#    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
 #    environment:
 #      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
 #    volumes:
@@ -48,7 +48,7 @@ services:
 #      - ${NHAPHANG_IN_PORT}:80
 #    restart: unless-stopped
   baogam_admin:
-    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_admin
     volumes:
@@ -57,7 +57,7 @@ services:
       - ${BAOGAM_ADMIN_PORT}:80
     restart: unless-stopped
   baogam_order:
-    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
     volumes:
@@ -66,7 +66,7 @@ services:
       - ${BAOGAM_ORDER_PORT}:80
     restart: unless-stopped
   # baogam_logistics:
-  #   image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+  #   image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
   #   environment:
   #     - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
   #   volumes:
@@ -75,7 +75,7 @@ services:
   #     - ${BAOGAM_LOGSITICS_PORT}:80
   #   restart: unless-stopped
 #  vibaga:
-#    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+#    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
 #    environment:
 #      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
 #    volumes:
@@ -84,7 +84,7 @@ services:
 #      - ${VIBAGA_PORT}:80
 #    restart: unless-stopped
 #  baogam_in:
-#    image: ghcr.io/gobiz-vinasat/ali-docker:dev-apache
+#    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
 #    environment:
 #      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
 #    volumes:
