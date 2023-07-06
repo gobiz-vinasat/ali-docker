@@ -18,15 +18,15 @@ services:
     ports:
       - ${NHAPHANG_ORDER_PORT}:80
     restart: unless-stopped
-  # nhaphang_logistics:
-  #   image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
-  #   environment:
-  #     - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
-  #   volumes:
-  #     - ${NHAPHANG_LOGSITICS_SOURCE}:/var/www/html
-  #   ports:
-  #     - ${NHAPHANG_LOGSITICS_PORT}:80
-  #   restart: unless-stopped
+  nhaphang_logistics:
+    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/www_html
+    volumes:
+      - ${NHAPHANG_LOGSITICS_SOURCE}:/var/www/html
+    ports:
+      - ${NHAPHANG_LOGSITICS_PORT}:80
+    restart: unless-stopped
 #  vitali:
 #    image: ghcr.io/gobiz-vinasat/ali-docker:php-5.4.1
 #    environment:
